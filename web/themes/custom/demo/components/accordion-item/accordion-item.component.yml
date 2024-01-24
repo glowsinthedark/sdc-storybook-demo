@@ -1,0 +1,20 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+name: Accordion Item
+status: "experimental"
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
+slots:
+  title: {}
+  title_block: {}
+  content: {}
+  content_block: {}
+  expand_icon: {}
+  collapse_icon: {}
+prop:
+  type: object
+  properties:
+    button_text:
+      type: string
+      default: "Expand"

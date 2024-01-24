@@ -1,0 +1,16 @@
+title: Accordion
+args:
+  accordion_items: |
+    {% set content_demo %}
+      <p>Item 1 content</p>
+    {% endset %}
+    {{ include('demo:accordion-item', {
+      title: 'Item 1',
+      content: content_demo,
+    })}}
+    {{ include('demo:accordion-item', {
+      title: 'Item 2',
+      content: '<p>Item 2 content</p>',
+    })}}
+stories:
+  - name: Default

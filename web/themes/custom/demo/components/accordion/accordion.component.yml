@@ -1,0 +1,6 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+name: Accordion
+status: "experimental"
+description: An Accordion component
+slots:
+  accordion_items: {}

@@ -1,0 +1,111 @@
+@use "../../../libraries/partials/partials" as *;
+
+.c-accordion-item {
+  background: #fff;
+
+  .c-accordion-item__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .c-accordion-item__header {
+    order: 1;
+    width: 100%;
+  }
+
+  .c-accordion-item__title {
+    margin: rem(20px) 0 rem(12px) 0;
+  }
+
+  .c-accordion-item__button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    text-align: left;
+    border-radius: 0;
+    cursor: pointer;
+    overflow: hidden;
+
+    .c-accordion-item__button-icon {
+      height: rem(22px);
+      width: rem(22px);
+      position: relative;
+      overflow: hidden;
+      display: block;
+
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0 0;
+        transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .plus {
+        transform: rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      .minus {
+        transform: rotate(90deg) translate(-50%, -50%);
+        opacity: 0;
+      }
+    }
+  }
+
+  .c-accordion-item__button[aria-expanded="true"] {
+    .c-accordion-item__button-icon {
+      .plus {
+        transform: rotate(90deg) translate(-50%, -50%);
+        opacity: 0;
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .minus {
+        transform: rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+        transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 350ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+  }
+
+  .c-accordion-item__button-text {
+    margin: 0 0 0 rem(12px);
+  }
+
+  .c-accordion-item__content {
+    transition: max-height 850ms cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 400vh;
+
+    .c-accordion-item__content-inner-wrapper {
+      opacity: 1;
+      transition: opacity 750ms cubic-bezier(0.4, 0, 0.2, 1);
+      margin: rem(12px) 0 0 0;
+
+      @include bp-min(medium) {
+        margin: rem(20px) 0 0 0;
+      }
+    }
+  }
+
+  .c-accordion-item__content[aria-hidden="true"] {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 650ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    .c-accordion-item__content-inner-wrapper {
+      opacity: 0;
+      transition: opacity 550ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}

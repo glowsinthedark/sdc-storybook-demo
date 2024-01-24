@@ -1,0 +1,29 @@
+<section {{ attributes.addClass(['c-cta']).merge(attributes) }}>
+
+<div class="c-cta__wrap">
+  <div class="c-cta__inner-wrap">
+    {% if title %}
+      {% block title_block %}
+        <h2 class="c-cta__title">{{title}}</h2>
+      {% endblock %}
+    {% endif %}
+
+    {% if text %}
+      {% block text_block %}
+        <div class="c-cta__text">
+        {{ text|check_markup('plain') }}
+        </div>
+      {% endblock %}
+    {% endif %}
+
+    {% if link_url and link_text %}
+      {% block link_block %}
+        <a href="{{link_url}}" class="c-cta__button">{{link_text}}</a>
+      {% endblock %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="c-cta__shape" aria-hidden="true"></div>
+
+</section>

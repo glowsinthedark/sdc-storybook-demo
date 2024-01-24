@@ -1,0 +1,20 @@
+@use "../../libraries/partials/partials" as *;
+
+.c-link {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  padding: rem(10px) rem(20px);
+  width: fit-content;
+
+  @include font(18);
+  color: var(--demo-color-white);
+  font-family: var(--demo-font-sans);
+  text-decoration: none;
+}
+
+.c-link__icon {
+  svg {
+    fill: var(--demo-color-black);
+  }
+}

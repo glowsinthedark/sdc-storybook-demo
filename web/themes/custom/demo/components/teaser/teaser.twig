@@ -1,0 +1,202 @@
+{% set listStackMetaSeperator = 'no_listStackMetaSeperator' %}
+{% if (category and date and layout == 'column-simple-stack') or (layout == 'list-stack' and date and time) %}
+	{% set listStackMetaSeperator = 'listStackMetaSeperator' %}
+{% endif %}
+
+{% set imageClass = 'no-image' %}
+{% if image %}
+	{% set imageClass = 'image' %}
+{% endif %}
+
+<article
+	{{ attributes.addClass('c-teaser'|addModifiers([layout, icon, listStackMetaSeperator, imageClass])) }}>
+
+	{# Image & Category #}
+	{% if image %}
+		<div class="c-teaser__image-wrapper">
+
+			{% if image %}
+				{% include "demo:image" with {
+          image: image,
+          alt: alt
+          } %}
+			{% endif %}
+
+			{# Category #}
+			{% if category and layout == 'column-stack' %}
+				{% block category_block %}
+					<p class="c-teaser__category">
+						<a href="{{category_url}}">{{category}}</a>
+					</p>
+				{% endblock %}
+			{% endif %}
+
+		</div>
+	{% endif %}
+
+	<div
+		class="c-teaser__content-wrapper">
+
+		{# Pre Title #}
+		{% if pretitle %}
+			{% block pretitle_block %}
+				<p class="c-teaser__pretitle">
+					{{pretitle}}
+				</p>
+			{% endblock %}
+		{% endif %}
+
+		{# Title #}
+		{% if title %}
+			{% block title_block %}
+				<h3 class="c-teaser__title">
+					<a href="{{url}}">{{title}}</a>
+				</h3>
+			{% endblock %}
+		{% endif %}
+
+		{# Body #}
+		{% if body %}
+			{% block body_block %}
+				<div class="c-teaser__body">
+					{{body|check_markup('plain') }}
+				</div>
+			{% endblock %}
+		{% endif %}
+
+		{% if category or teaser_date or teaser_time %}
+			<div
+				class="c-teaser__meta-wrapper">
+
+				{# Category #}
+				{% if category and (layout == 'super' or layout == 'column-simple-stack' or layout == 'list-stack') %}
+					{% block category2_block %}
+						<p class="c-teaser__category {{category_color}}">
+							<a href="{{category_url}}">{{category}}</a>
+						</p>
+					{% endblock %}
+				{% endif %}
+
+				<div
+					class="c-teaser__date-time-wrapper">
+					{# Date #}
+					{% if teaser_date %}
+						{% block date_block %}
+							<p class="c-teaser__date">
+								{{teaser_date}}
+							</p>
+						{% endblock %}
+					{% endif %}
+
+					{# Time #}
+					{% if teaser_time %}
+						{% block time_block %}
+							<p class="c-teaser__time">
+								{{teaser_time}}
+							</p>
+						{% endblock %}
+					{% endif %}
+				</div>
+
+			</div>
+		{% endif %}
+
+
+		{# Tags #}
+		{% if tags %}
+			<ul class="c-teaser__tags">
+				{% block tags_block %}
+					{% for key, tag in tags %}
+						<li class="c-teaser__tag">
+							<a href="{{tag.title}}">{{tag.title}}</a>
+						</li>
+					{% endfor %}
+				{% endblock %}
+			</ul>
+		{% endif %}
+
+	</div>
+
+	</div>
+{% endif %}
+<div
+	class="c-teaser__content-wrapper">
+
+	{# Pre Title #}
+	{% if pretitle %}
+		{% block pretitle_block %}
+			<p class="c-teaser__pretitle">
+				{{pretitle}}
+			</p>
+		{% endblock %}
+	{% endif %}
+
+	{# Title #}
+	{% if title %}
+		{% block title_block %}
+			<h3 class="c-teaser__title">
+				<a href="{{url}}">{{title}}</a>
+			</h3>
+		{% endblock %}
+	{% endif %}
+
+	{# Body #}
+	{% if body %}
+		{% block body_block %}
+			<div class="c-teaser__body">
+				{{body|check_markup('plain') }}
+			</div>
+		{% endblock %}
+	{% endif %}
+
+	{% if category or teaser_date or teaser_time %}
+		<div
+			class="c-teaser__meta-wrapper">
+
+			{# Category #}
+			{% if category and (layout == 'super' or layout == 'column-simple-stack' or layout == 'list-stack') %}
+				{% block category2_block %}
+					<p class="c-teaser__category {{category_color}}">
+						<a href="{{category_url}}">{{category}}</a>
+					</p>
+				{% endblock %}
+			{% endif %}
+
+			<div
+				class="c-teaser__date-time-wrapper">
+				{# Date #}
+				{% if teaser_date %}
+					{% block date_block %}
+						<p class="c-teaser__date">
+							{{teaser_date}}
+						</p>
+					{% endblock %}
+				{% endif %}
+
+				{# Time #}
+				{% if teaser_time %}
+					{% block time_block %}
+						<p class="c-teaser__time">
+							{{teaser_time}}
+						</p>
+					{% endblock %}
+				{% endif %}
+			</div>
+
+		</div>
+	{% endif %}
+
+
+	{# Tags #}
+	{% if tags %}
+		<ul class="c-teaser__tags">
+			{% block tags_block %}
+				{% for key, tag in tags %}
+					<li class="c-teaser__tag">
+						<a href="{{tag.title}}">{{tag.title}}</a>
+					</li>
+				{% endfor %}
+			{% endblock %}
+		</ul>
+	{% endif %}
+</div></article>

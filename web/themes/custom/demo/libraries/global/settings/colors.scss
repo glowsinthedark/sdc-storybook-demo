@@ -1,0 +1,82 @@
+//
+// Global - Color
+//
+// - 01 - Theme Colors
+// - 02 - Grayscale
+// - 03 - Utilities
+//
+
+
+//------------------------------------
+//  01 - Theme Colors
+//  A mixin is created and than instantly called here so that we can utilize the same styles within other
+//  stylesheets, like the `wysiwyg.scss` file.
+//------------------------------------
+
+@mixin colors-theme() {
+  :root {
+    --demo-color-blue:       #0D6EFD;
+    --demo-color-indigo:     #6610F2;
+    --demo-color-purple:     #6F42C1;
+    --demo-color-pink:       #D63384;
+    --demo-color-red:        #DC3545;
+    --demo-color-orange:     #FD7E14;
+    --demo-color-yellow:     #FFC107;
+    --demo-color-green:      #198754;
+    --demo-color-teal:       #20C997;
+    --demo-color-cyan:       #0DCAF0;
+  }
+}
+
+@include colors-theme();
+
+
+
+
+//------------------------------------
+//  02 - Grayscale
+//  A mixin is created and than instantly called here so that we can utilize the same styles within other
+//  stylesheets, like the `wysiwyg.scss` file.
+//------------------------------------
+
+@mixin colors-grayscale() {
+  :root {
+    --demo-color-white:      #FFFFFF;
+    --demo-color-gray-100:   #F8F9FA;
+    --demo-color-gray-200:   #E9ECEF;
+    --demo-color-gray-300:   #DEE2E6;
+    --demo-color-gray-400:   #CED4DA;
+    --demo-color-gray-500:   #ADB5BD;
+    --demo-color-gray-600:   #6C757D;
+    --demo-color-gray-700:   #495057;
+    --demo-color-gray-800:   #343A40;
+    --demo-color-gray-900:   #212529;
+    --demo-color-black:      #000000;
+  }
+}
+
+@include colors-grayscale();
+
+
+
+
+//------------------------------------
+//  03 - Utilities
+//  A mixin is created and than instantly called here so that we can utilize the same styles within other
+//  stylesheets, like the `wysiwyg.scss` file.
+//------------------------------------
+
+@mixin colors-utilities() {
+  :root {
+    --demo-color-primary:    var(--demo-color-blue);
+    --demo-color-secondary:  var(--demo-color-gray-600);
+    --demo-color-success:    var(--demo-color-green);
+    --demo-color-info:       var(--demo-color-cyan);
+    --demo-color-warning:    var(--demo-color-yellow);
+    --demo-color-danger:     var(--demo-color-red);
+    --demo-color-light:      var(--demo-color-gray-100);
+    --demo-color-dark:       var(--demo-color-gray-900);
+  }
+}
+
+@include colors-utilities();

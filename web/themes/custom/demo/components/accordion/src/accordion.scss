@@ -1,0 +1,15 @@
+@use '../../../libraries/partials/partials' as *;
+
+.c-accordion {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: rem(32px);
+
+  @include bp-min(medium) {
+    row-gap: rem(48px);
+  }
+
+  @include bp-min(large) {
+    row-gap: rem(60px);
+  }
+}

@@ -1,0 +1,33 @@
+{#
+This is a Twig template for a button component.
+
+Parameters:
+- type (string): The type of the button (e.g., 'submit', 'button', etc.).
+- text (string): The text that will be displayed on the button.
+- attributes (array): Additional HTML attributes that will be added to the button element.
+- aria_disabled (boolean): A flag that indicates whether the button is disabled for accessibility purposes.
+- modifier (array): An array of modifiers that will be used to generate additional CSS classes for the button.
+
+Usage:
+Include this template in your Twig file using the include function and pass the parameters in an associative array. For example:
+
+{{ include('demo:button', {
+  attributes: create_attribute(),
+  text: 'Primary Button',
+  type: 'button',
+  modifier: ['primary', 'large'],
+  aria_disabled: false,
+}, with_context = false) }}
+
+Note:
+- The 'create_attribute()' function is used to create an instance of the Attribute class.
+- The 'modifier' parameter is an array of strings. Each string in the array will be appended to 'a-button--' to create a CSS class that will be added to the button.
+#}
+
+{% set classes = ['a-button'] %}
+{% for mod in modifier %}
+  {% set classes = classes|merge(['a-button--' ~ mod]) %}
+{% endfor %}
+
+<button type="{{ type }}" {{ attributes.addClass(classes) }} {% if aria_disabled %}aria-disabled="true"{% endif %}>{{ text }}</button>
+

@@ -1,0 +1,31 @@
+{% set id = 'accordion-content'|clean_unique_id  %}
+<section {{ attributes.addClass('c-accordion-item').merge(attributes).addClass(styles) }}>
+	<div class="c-accordion-item__wrapper">
+		<div class="c-accordion-item__header">
+			{% block title_block %}
+				<h2 class="c-accordion-item__title">{{ title }}</h2>
+			{% endblock title_block %}
+
+			<button class="c-accordion-item__button" aria-expanded="false" aria-controls={{ id }} aria-label="toggle accordion content">
+				<span class="c-accordion-item__button-icon" aria-hidden="true" focusable="false">
+					{% block expand_icon %}
+						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" class="plus"><path fill="#002878" fill-rule="evenodd" d="M6.214 7.786v5.5h1.572v-5.5h5.5V6.214h-5.5v-5.5H6.214v5.5h-5.5v1.572h5.5Z" clip-rule="evenodd"/></svg>
+					{% endblock %}
+					{% block collapse_icon %}
+						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="2" fill="none" class="minus"><path fill="#002878" d="M.714.214h12.571v1.571H.714z"/></svg>
+					</span>
+				{% endblock %}
+				<span class="c-accordion-item__button-text">{{ button_text|default('Expand') }}</span>
+			</button>
+
+			{% block content_block %}
+				<div class="c-accordion-item__content" id='{{ id }}' aria-hidden="true">
+					<div class="c-accordion-item__content-inner-wrapper">
+						{{ content }}
+					</div>
+				</div>
+			{% endblock  %}
+
+		</div>
+	</div>
+</section>

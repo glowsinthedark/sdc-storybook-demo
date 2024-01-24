@@ -1,0 +1,19 @@
+@use '../../../libraries/partials/partials' as *;
+
+.c-video__video-wrapper {
+  position: relative;
+}
+
+.c-video__caption {
+  color: var(--demo-color-black);
+  margin: rem(8px) 0 0 0;
+
+  & > p {
+    color: var(--demo-color-black);
+    margin: 0 0 rem(12px) 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "atendesigngroup/legacy_me_style_options",
+  "type": "drupal-module",
+  "description": "Legacy Mercury Editor Style Options",
+  "keywords": ["Drupal"],
+  "homepage": "https://github.com/AtenDesignGroup/legacy_me_style_options",
+  "support": {
+    "issues": "https://github.com/AtenDesignGroup/legacy_me_style_options/issues",
+    "source": "https://github.com/AtenDesignGroup/legacy_me_style_options"
+  },
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/style_options": "^1@dev"
+  }
+}

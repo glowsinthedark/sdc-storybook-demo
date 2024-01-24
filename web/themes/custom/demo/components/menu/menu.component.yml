@@ -1,0 +1,15 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+name: Menu
+description: This is a keyboard supported accessible menu component
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+props:
+  type: object
+  properties:
+    placeholder:
+      type: string
+      title: Empty
+      description: This is an empty component due to a core issue

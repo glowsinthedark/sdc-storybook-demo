@@ -1,0 +1,86 @@
+@use '../../../libraries/partials/partials' as *;
+
+.c-menu--navigation {
+  // Top level menu wrapper, main menu list element
+  ul[data-depth='0'] {
+    @include list--no-bullets;
+    display: flex;
+    flex-flow: row;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+
+    li {
+      position: relative;
+    }
+
+    // Mobile styles for when only main nav is in wrapper
+    @include bp-max(medium) {
+      flex-flow: column;
+    }
+
+    // On larger desktop screens
+    @include bp-min(medium) {
+      align-items: center;
+      gap: 22px;
+      margin: 42px 0;
+    }
+  }
+
+  // Secondary level menu wrapper styles
+  ul[data-depth='1'] {
+    @include list--no-bullets;
+
+    @include bp-min(medium) {
+      position: absolute;
+      background: rgb(255, 255, 255);
+      border: 1px solid grey;
+      width: 100%;
+    }
+
+    .menu__item {
+      margin: 0;
+      padding: 12px 0;
+
+      &:focus,
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+  // All sub-menu open/close styles
+  ul:not([data-depth='0']) {
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 1s;
+
+    &.open {
+      opacity: 1;
+      visibility: visible;
+      transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+      transition-delay: 1s;
+    }
+  }
+
+  // Account for nested menus
+  @include bp-max(smdesk) {
+    ul[data-depth='1'] {
+      display: none;
+
+      &.open {
+        display: block;
+      }
+    }
+  }
+  @include bp-min(mobile) {
+    ul[data-depth='1'] ul {
+      display: none;
+
+      &.open {
+        display: block;
+      }
+    }
+  }
+}

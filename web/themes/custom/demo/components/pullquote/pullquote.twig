@@ -1,0 +1,18 @@
+
+<blockquote {{ attributes.addClass('c-pullquote') }}>
+
+  {% if quote %}
+    <div class="c-pullquote__content">
+      {{quote }}
+    </div>
+  {% endif %}
+
+  {% if credit %}
+    {% block credit_body %}
+    <footer class="c-pullquote__footer">
+      <cite>{{credit}}</cite>
+    </footer>
+    {% endblock %}
+  {% endif %}
+
+</blockquote>

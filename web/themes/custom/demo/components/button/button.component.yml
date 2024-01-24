@@ -1,0 +1,36 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Button
+description: A basic button component
+props:
+  type: object
+  required:
+    - text
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    type:
+      title: Button type
+      type: string
+      enum:
+        - button
+        - reset
+        - submit
+    modifier:
+      title: Modifier
+      type: array
+      items:
+        type: string
+        enum:
+          - primary
+          - secondary
+    text:
+      type: string
+      title: Title
+      description: The title for the button
+      examples:
+        - Read more about this topic
+        - Submit now
+    aria_disabled:
+      title: Aria disabled
+      type: boolean
+      default: false

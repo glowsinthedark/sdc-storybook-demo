@@ -1,0 +1,7 @@
+name: Legacy Mercury Editor Style Options
+description: 'Provides legacy Mercury Editor style options.'
+type: module
+package: 'Mercury Editor'
+core_version_requirement: ^9 || ^10
+dependencies:
+  - style_options

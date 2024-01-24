@@ -1,0 +1,74 @@
+<div class="layout-container">
+	{% if alert %}
+		<div class="l-constrained">
+			{{ page.alert }}
+		</div>
+	{% endif %}
+	{# /alert #}
+
+	{% block header %}
+		<header class="site-header" role="banner">
+			<div class="site-header__inner l-constrained">
+				{{ page.branding }}
+				{{ page.navigation }}
+			</div>
+		</header>
+	{% endblock %}
+	{# /header #}
+
+	{% if breadcrumb %}
+		{{ include('demo:breadcrumbs', {
+			breadcrumbs: page.breadcrumb,
+		}) }}
+	{% endif %}
+	{# /breadcrumb #}
+
+	{% block highlighted %}
+		{{ page.highlighted }}
+	{% endblock %}
+
+	{% block help %}
+		{{ page.help }}
+	{% endblock %}
+
+
+	{% block main %}
+		<main>
+			<a id="main-content" tabindex="-1"></a>
+			{# link is in html.html.twig #}
+
+			{% block content %}
+				<div class="l-constrained">
+					{{ page.content }}
+
+          {{ include('demo:button', {
+            attributes: create_attribute(),
+            text: 'Primary Button',
+            type: 'button',
+            modifier: ['primary'],
+            aria_disabled: false,
+          }, with_context = false) }}
+
+          {{ include('demo:button', {
+            attributes: create_attribute(),
+            type: 'button',
+            text: 'Secondary Button',
+            modifier: ['secondary'],
+          }, with_context = false) }}
+
+				</div>
+			{% endblock %}
+			{# /content #}
+
+		</main>
+	{% endblock %}
+	{# /main #}
+
+	{% block footer %}
+		{{page.footer}}
+	{% endblock %}
+	{# /footer #}
+	<a href="#top">{{'Back to Top'|t}}</a>
+
+</div>
+{# /.layout-container #}

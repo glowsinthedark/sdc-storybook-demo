@@ -1,0 +1,57 @@
+import {
+  Title,
+  Subtitle,
+  Meta,
+  Description,
+  Primary as PrimaryDocBlock,
+  Story,
+  Controls
+} from "@storybook/blocks";
+import * as buttonStories from "./button.stories.yml";
+
+<Meta of={buttonStories} name="Docs" />
+<Title />
+<Subtitle />
+<Description />
+
+<PrimaryDocBlock />
+
+## Properties
+<Controls sort={'alpha'} />
+
+---
+
+### Examples
+**Example #1:** Primary Button
+<Story of={buttonStories.Primary} />
+
+```twig
+{{ include('demo:button', {
+  attributes: create_attribute(),
+  text: 'Primary Button',
+  modifier: ['primary'],
+}, with_context = false) }}
+```
+
+**Example #2:** Primary Button
+<Story of={buttonStories.Secondary} />
+
+```twig
+{{ include('demo:button', {
+  attributes: create_attribute(),
+  text: 'Secondary Button',
+  modifier: ['secondary'],
+}, with_context = false) }}
+```
+
+**Example #3:** Primary Large Button
+
+<Story of={buttonStories.PrimaryLarge} />
+
+```twig
+{{ include('demo:button', {
+  attributes: create_attribute(),
+  text: 'Primary Large Button',
+  modifier: ['primary', 'large'],
+}, with_context = false) }}
+```

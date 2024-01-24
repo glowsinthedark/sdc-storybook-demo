@@ -1,0 +1,54 @@
+title: Atoms/Button
+description: A basic button component
+parameters:
+  controls:
+    { expanded: true, sort: 'alpha' }
+argTypes:
+  type:
+    name: Type
+    description: The type of button
+    control: select
+    options:
+      Button: button
+      Reset: reset
+      Submit: submit
+    defaultValue: { summary: 'button' }
+    table:
+      type:
+        summary: "string"
+  modifier:
+    name: Modifier
+    description: The style of button
+    control: multi-select
+    options: [ 'primary', 'secondary' ]
+    defaultValue: { summary: 'primary' }
+    table:
+      type:
+        summary: "array"
+  text:
+    name: Text
+    description: The text content of the button
+    control: text
+    table:
+      type:
+        summary: "string, required"
+  aria_disabled:
+    name: ARIA Disabled
+    description: Disabled
+    control: boolean
+    defaultValue: { summary: 'false' }
+    table:
+      type:
+        summary: "boolean"
+stories:
+  - name: Primary
+    args:
+      text: Primary Button
+  - name: Secondary
+    args:
+      text: Secondary Button
+      modifier: ['secondary']
+  - name: PrimaryLarge
+    args:
+      text: Primary Large Button
+      modifier: ['primary', 'large']

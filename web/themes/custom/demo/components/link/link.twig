@@ -1,0 +1,8 @@
+<a href="{{link}}" {{ attributes.addClass(['c-link']) }}>
+	{{ text }}
+	{% if iconType %}
+		<span class="c-link__icon">
+			{{ source(componentMetadata.path ~ '/icons/' ~ iconType|default('arrow_right') ~ '.svg') }}
+		</span>
+	{% endif %}
+</a>

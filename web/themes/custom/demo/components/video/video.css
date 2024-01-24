@@ -1,0 +1,15 @@
+.c-video__video-wrapper {
+  position: relative;
+}
+
+.c-video__caption {
+  color: var(--demo-color-black);
+  margin: 0.5rem 0 0 0;
+}
+.c-video__caption > p {
+  color: var(--demo-color-black);
+  margin: 0 0 0.75rem 0;
+}
+.c-video__caption > p:last-child {
+  margin: 0;
+}

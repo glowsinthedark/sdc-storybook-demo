@@ -1,0 +1,33 @@
+title: CTA
+args:
+  title: "Icon Item Title"
+  link_url: "https://aten.io"
+  link_text: "Button Text"
+  text: "<p>Incididunt commodo aliqua in nulla occaecat reprehenderit irure fugiat adipisicing.</p>"
+  styles: "icon--trio"
+argTypes:
+  styles:
+    control: select
+    description: Icon style
+    options:
+      - icon--book
+      - icon--circles
+      - icon--coffee
+      - icon--concentric-circles
+      - icon--connections
+      - icon--cube
+      - icon--globe
+      - icon--group
+      - icon--leader
+      - icon--location
+      - icon--search
+      - icon--tunnel
+      - icon--growth
+      - icon--speech
+      - icon--together
+      - icon--up
+      - icon--video
+      - icon--web
+      - icon--trio
+stories:
+  - name: "Default"

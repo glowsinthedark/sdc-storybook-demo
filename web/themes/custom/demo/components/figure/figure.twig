@@ -1,0 +1,24 @@
+{% set alt = media_alt ? media_alt : "" %}
+{% set figure_classes = ['c-figure']|merge(classes|default([])) %}
+
+<figure{{attributes.addClass(figure_classes)}}>
+
+	{% block media_block %}
+		{% if media_entity %}
+			{{ media_entity }}
+		{% endif %}
+
+		{% if media_src %}
+			<img src="{{ media_src }}" alt="{{ alt }}"/>
+		{% endif %}
+	{% endblock %}
+
+	{% block caption_block %}
+		{% if media_caption %}
+			<figcaption class='c-figure__caption'>
+				{{media_caption}}
+			</figcaption>
+		{% endif %}
+	{% endblock %}
+
+</figure>

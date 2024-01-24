@@ -1,0 +1,26 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Link
+description: A basic link component
+props:
+  type: object
+  required:
+    - text
+    - link
+  properties:
+    iconType:
+      type: string
+      title: Icon Type
+      enum:
+        - arrow_right
+        - external_link
+    text:
+      type: string
+      title: Title
+      examples:
+        - Enim elit id consequat
+        - Super cool and interesting title!
+    link:
+      type: string
+      title: Link
+      examples:
+        - "https://some-example/smdesk.jpg"
