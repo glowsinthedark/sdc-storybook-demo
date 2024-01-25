@@ -56,6 +56,12 @@
             modifier: ['secondary'],
           }, with_context = false) }}
 
+          {{ include('demo:button', {
+            attributes: create_attribute(),
+            text: 'Primary Large Button',
+            modifier: ['primary', 'large'],
+          }, with_context = false) }}
+
 				</div>
 			{% endblock %}
 			{# /content #}

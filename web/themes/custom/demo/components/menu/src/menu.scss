@@ -65,7 +65,7 @@
   }
 
   // Account for nested menus
-  @include bp-max(smdesk) {
+  @include bp-max(medium) {
     ul[data-depth='1'] {
       display: none;
 
